@@ -9,3 +9,5 @@ MOD-TC-MK2-31885 - demo how to measure temperatures with thermocouple from -250C
 LEDGAME - Arduino tutorial for use of buttons and LEDs, simple LED / buttons game
 
 IR-REMOTE - Arduino woring with MOD-IRDA tutorial, TV remote switch ON and OFF LED on breadboard
+
+MOD-LED8x8RGB - led matrix Arduino library
