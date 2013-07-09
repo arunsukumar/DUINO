@@ -190,7 +190,8 @@ void drawTriangle (int x1, int y1, int x2, int y2, int x3, int y3) {   //draw a 
 
 //----------------------------------------------------------------------------------------------
 void drawChar(unsigned char c) {  //draw static character  if within the Font limit
-   unsigned char b,i,k;
+   unsigned char b,i;
+   signed char k;
    if (c<32 || c>125) c=32;
 
    for(k=0;k<5;k++) {
