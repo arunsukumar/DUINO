@@ -1,6 +1,8 @@
 Simon Game
 ==========
 
+[![simongame]](https://github.com/OLIMEX/DUINO/blob/master/AVR/SIMONGAME/SimonGame.png)
+
 This is the popular Simon Game which test how good your short memory is.
 There are Four LEDs and Four Buttons.
 The LEDs blink in random pattern which you should repeat with the buttons.
