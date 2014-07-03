@@ -12,4 +12,6 @@ The buttons 1,2,3,4 are connected to D0,D1,D2,D3 with pull up resistors 10K.
 The LEDs are connected to D4,D5,D6,D7 with 560 ohm series resistors.
 The Piezzo Buzzer is connected to D8.
 
+[![IMAGE Simon Game](http://img.youtube.com/vi/v=gHFTdV-EEM8/0.jpg)](http://www.youtube.com/watch?v=v=gHFTdV-EEM8)
+
 Source code is included under GPL.
