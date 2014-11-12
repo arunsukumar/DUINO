@@ -22,6 +22,8 @@
 #include "leds.h"
 #include "button.h"
 
+/* If you want to disable buzzer uncomment the following line */
+//#define NO_SOUND
 
 uint8_t randomArray[60];
 uint8_t maxItem = 60;
@@ -49,7 +51,9 @@ void resetGame(){
   pinMode(2, OUTPUT);
   pinMode(4, OUTPUT);
 
+#ifndef NO_SOUND
   playTune();
+#endif
 }
 
 void waitForStart(){
@@ -82,7 +86,9 @@ void startGame(){
   for(int i = 0; i < maxItem; i++){
     for(int j = 0; j < i+1; j++){
       setLed(randomArray[j]);
+#ifndef NO_SOUND
       soundBuzzer(randomArray[j]);
+#endif
       delay(200/difficulty);
       clearLeds();
       delay(200/difficulty);
@@ -94,18 +100,24 @@ void startGame(){
         but = debounceButton();
       }while(but == 0);
       setLed(but);
+#ifndef NO_SOUND
       soundBuzzer(but);
+#endif
       while(debounceButton() != 0);
       clearLeds();
 
       if(but != randomArray[j]){
+#ifndef NO_SOUND
         playGameOver();
+#endif
         return;
       }
     }
     delay(500);
   }
+#ifndef NO_SOUND
   playWin();
+#endif
 }
 
 
@@ -118,19 +130,6 @@ void setup() {
   pinMode(2, OUTPUT);
   pinMode(4, OUTPUT);
 
-#if 0
-  while(1){
-    int but;
-    //  while(debounceButton() != 0);
-      do{
-        but = debounceButton();
-      }while(but == 0);
-      setLed(but);
- //     soundBuzzer(but);
-      while(debounceButton() != 0);
-      clearLeds();
-  }
-  #endif
 }
 
 void loop() {
