@@ -20,20 +20,37 @@
 #ifndef __BUTTON_H_
 #define __BUTTON_H_
 
-	#include <Arduino.h>
+#include <Arduino.h>
 
-	#define DEBOUNCE_DELAY 1
-	#define READ_TIMES 5
-	#define READ_DELAY 5
-	#define ADC_PORT 3
+#define DEBOUNCE_DELAY 1
+#define READ_TIMES 5
+#define READ_DELAY 5
+#define ADC_PORT 3
 
-	// define buttons adc threshold
-    #define BUTTON1 373  // 260 @ 0.84
-    #define BUTTON2 514  // 350 @ 1.13
-    #define BUTTON3 601  // 424 @ 1.37
-    #define BUTTON4 662  // 483 @ 1.56
-    #define BUTTON_MARGIN 30
+/* Define expected ADC values */
+#define BUTTON1 385
+#define BUTTON2 528
+#define BUTTON3 618
+#define BUTTON4 681
 
-	int readButton(void);
-	int debounceButton(void);
+/* Add some offset to the values of the buttons */
+#define BUTTON_OFFSET 30
+
+/* Define minimal and maximum value */
+#define B1_MIN	BUTTON1 - BUTTON_OFFSET
+#define B1_MAX	BUTTON1	+ BUTTON_OFFSET
+#define B2_MIN	BUTTON2 - BUTTON_OFFSET
+#define B2_MAX	BUTTON2	+ BUTTON_OFFSET
+#define B3_MIN	BUTTON3 - BUTTON_OFFSET
+#define B3_MAX	BUTTON3	+ BUTTON_OFFSET
+#define B4_MIN	BUTTON4 - BUTTON_OFFSET
+#define B4_MAX	BUTTON4	+ BUTTON_OFFSET
+
+
+int readButton(void);
+int debounceButton(void);
+
+
+
+
 #endif
