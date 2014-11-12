@@ -28,10 +28,10 @@
 #define ADC_PORT 3
 
 /* Define expected ADC values */
-#define BUTTON1 385
-#define BUTTON2 528
-#define BUTTON3 618
-#define BUTTON4 681
+#define BUTTON1 373
+#define BUTTON2 514
+#define BUTTON3 601
+#define BUTTON4 662
 
 /* Add some offset to the values of the buttons */
 #define BUTTON_OFFSET 30

@@ -177,4 +177,3 @@ void playGameOver(void){
   playStaccatoNote(Eb3, QUARTER_NOTE);
   playNote(E3, HALF_NOTE);
 }
-
