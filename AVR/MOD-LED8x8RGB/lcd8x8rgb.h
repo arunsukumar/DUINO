@@ -17,8 +17,8 @@
   *scrollString( c, dir) - scrolls string left or right
   *
 */
-#define bigX 3                  // Number of MOD-LED8x8RGB in columns
-#define bigY 2                  // Number of MOD-LED8x8RGB in rows
+#define bigX 2                  // Number of MOD-LED8x8RGB in columns
+#define bigY 1                  // Number of MOD-LED8x8RGB in rows
 #define NumberX bigX*bigY       // Total number of MOD-LED8x8RGBs connected together
 
 unsigned char color = 1;        // Starting color of LEDs
@@ -197,7 +197,7 @@ void drawChar(unsigned char c) {  //draw static character  if within the Font li
    for(k=0;k<5;k++) {
       b = FontLookup[c-32][k];
       for(i=0;i<8;i++)
-         if (b & (1<<i)) drawPixel(k+cX,i+cY);
+         if (b & (1<<(7-i))) drawPixel(k+cX,i+cY);	// SPP since our 0, 0 coordinates are in the top left corner instead of bottom left, the letters should be mirrored horizontally ==> (1<<7) replaced with (7-i)
    }
 }
 
@@ -233,7 +233,7 @@ void scrollCharLeft(unsigned char c) {   //scroll one character left if within t
    for(k=0;k<5;k++) {
       b = FontLookup[c-32][k];
       for(i=0;i<8;i++)
-         if (b & (1<<i)) drawPixel(bigX*8,i+1+(bigY-1)*8);
+         if (b & (1<<(7-i))) drawPixel(bigX*8,i+1+(bigY-1)*8);	// SPP since our 0, 0 coordinates are in the top left corner instead of bottom left, the letters should be mirrored horizontally ==> (1<<7) replaced with (7-i)
       Transfer();
       lScroll();
       delay(sdelay);
@@ -245,14 +245,15 @@ void scrollCharLeft(unsigned char c) {   //scroll one character left if within t
 
 //----------------------------------------------------------------------------------------------
 void scrollCharRight(unsigned char c) {  //scroll one character right if within the Font limit
-   unsigned char b,i,k;
+   unsigned char b,i;
+   char k;	// SPP - k must be able to take negative value so it should be signed char
    if (c<32 || c>125) c=32;
 
    rScroll();
    for(k=4;k>=0;k--) {
       b = FontLookup[c-32][k];
       for(i=0;i<8;i++)
-         if (b & (1<<i)) drawPixel(1,i+1);
+         if (b & (1<<(7-i))) drawPixel(1,i+1);	// SPP since our 0, 0 coordinates are in the top left corner instead of bottom left, the letters should be mirrored horizontally ==> (1<<7) replaced with (7-i)
       Transfer();
       rScroll();
       delay(sdelay);
