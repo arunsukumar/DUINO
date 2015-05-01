@@ -24,4 +24,5 @@ In order to get the software working you have to:
 Note: if you are using more than one board you need to edit the header file "lcd8x8rgb.h". There are two variables called "bigX" and "bigY" that are used to define the shape of the connected boards. Edit this part:
 
 define bigX 1                  // Number of MOD-LED8x8RGB in columns
+
 define bigY 1                  // Number of MOD-LED8x8RGB in rows
