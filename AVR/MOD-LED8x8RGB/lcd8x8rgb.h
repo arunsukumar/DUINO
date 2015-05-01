@@ -17,7 +17,7 @@
   *scrollString( c, dir) - scrolls string left or right
   *
 */
-#define bigX 2                  // Number of MOD-LED8x8RGB in columns
+#define bigX 1                  // Number of MOD-LED8x8RGB in columns
 #define bigY 1                  // Number of MOD-LED8x8RGB in rows
 #define NumberX bigX*bigY       // Total number of MOD-LED8x8RGBs connected together
 
